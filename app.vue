@@ -9,15 +9,20 @@
 
       <!-- Markup shared across all pages -->
       <NuxtPage />
+
+      <!-- Footer -->
+      <Footer />
+
     </v-layout>
   </v-card>
 </template>
 <script>
 import NavBar from "./components/navBar.vue";
 import SideBar from "./components/sideBar.vue";
+import Footer from "./components/footer.vue";
 
 export default {
-  components: { NavBar, SideBar },
+  components: { Footer, NavBar, SideBar },
   data: () => ({
     sideBarShow: false,
   }),

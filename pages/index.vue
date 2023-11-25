@@ -1,11 +1,23 @@
 <template>
-  <key-card />
+  <v-container fluid>
+    <v-row>
+      <dashboard-graph />
+    </v-row>
+    <v-row>
+      <dashboard-key-cards />
+    </v-row>
+    <v-row>
+      <dashboard-list-cards />
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import KeyCard from "../components/keyCard.vue";
+import DashboardGraph from "../components/dashboardGraph.vue";
+import DashboardKeyCards from "../components/dashboardKeyCards.vue";
+import DashboardListCards from "../components/dashboardListCards.vue";
 
 export default {
-  components: {KeyCard},
+  components: {DashboardListCards, DashboardKeyCards, DashboardGraph },
 }
 </script>
