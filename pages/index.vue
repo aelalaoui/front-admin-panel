@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <div>
     <v-row>
       <dashboard-graph />
     </v-row>
@@ -9,7 +9,7 @@
     <v-row>
       <dashboard-list-cards />
     </v-row>
-  </v-container>
+  </div>
 </template>
 
 <script>

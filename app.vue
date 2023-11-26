@@ -1,18 +1,19 @@
 <template>
   <v-card class="mx-auto">
     <v-layout>
-      <!-- Include the NavBar components -->
-      <nav-bar @toggle-drawer="toggleSidebar" />
+      <v-container fluid>
+        <!-- Include the NavBar components -->
+        <nav-bar @toggle-drawer="toggleSidebar" />
 
-      <!-- Include the SideBar components -->
-      <side-bar :show="sideBarShow" ref="sidebar"/>
+        <!-- Include the SideBar components -->
+        <side-bar :show="sideBarShow" ref="sidebar"/>
 
-      <!-- Markup shared across all pages -->
-      <NuxtPage />
+        <!-- Markup shared across all pages -->
+        <NuxtPage />
 
-      <!-- Footer -->
-      <Footer />
-
+        <!-- Footer -->
+        <Footer />
+      </v-container>
     </v-layout>
   </v-card>
 </template>

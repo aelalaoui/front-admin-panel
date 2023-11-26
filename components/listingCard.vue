@@ -1,5 +1,5 @@
 <template>
-  <v-card color="grey-lighten-4" flat min-height="200px">
+  <v-card color="grey-lighten-4" flat min-height="200px" >
     <v-toolbar
         :color="'primary'"
         :dark="false"
@@ -8,16 +8,10 @@
       <v-toolbar-title>Title</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
+        <v-icon>mdi-plus-circle</v-icon>
       </v-btn>
     </v-toolbar>
-    <v-data-table v-model:search="search" :items="items">
+    <v-data-table v-model:search="search" :items="items" class="scrollable-table">
       <template v-slot:header.stock>
         <div class="text-end">Stock</div>
       </template>
@@ -70,39 +64,92 @@ export default {
       {
         name: 'Nebula GTX 3080',
         image: '1.png',
-        price: 699.99,
-        rating: 5,
         stock: true,
       },
       {
         name: 'Galaxy RTX 3080',
         image: '2.png',
-        price: 799.99,
-        rating: 4,
         stock: false,
       },
       {
         name: 'Orion RX 6800 XT',
         image: '3.png',
-        price: 649.99,
-        rating: 3,
         stock: true,
       },
       {
         name: 'Vortex RTX 3090',
         image: '4.png',
-        price: 1499.99,
-        rating: 4,
         stock: true,
       },
       {
         name: 'Cosmos GTX 1660 Super',
         image: '5.png',
-        price: 299.99,
-        rating: 4,
+        stock: false,
+      },
+      {
+        name: 'Nebula GTX 3080',
+        image: '1.png',
+        stock: true,
+      },
+      {
+        name: 'Galaxy RTX 3080',
+        image: '2.png',
+        stock: false,
+      },
+      {
+        name: 'Orion RX 6800 XT',
+        image: '3.png',
+        stock: true,
+      },
+      {
+        name: 'Vortex RTX 3090',
+        image: '4.png',
+        stock: true,
+      },
+      {
+        name: 'Cosmos GTX 1660 Super',
+        image: '5.png',
+        stock: false,
+      },
+      {
+        name: 'Nebula GTX 3080',
+        image: '1.png',
+        stock: true,
+      },
+      {
+        name: 'Galaxy RTX 3080',
+        image: '2.png',
+        stock: false,
+      },
+      {
+        name: 'Orion RX 6800 XT',
+        image: '3.png',
+        stock: true,
+      },
+      {
+        name: 'Vortex RTX 3090',
+        image: '4.png',
+        stock: true,
+      },
+      {
+        name: 'Cosmos GTX 1660 Super',
+        image: '5.png',
         stock: false,
       },
     ],
   }),
 }
 </script>
+
+<style scoped>
+.scrollable-table {
+  overflow-x: auto;
+}
+
+/* Add a media query to set a specific width on small screens */
+@media (max-width: 600px) {
+  .scrollable-table {
+    width: 100%;
+  }
+}
+</style>
