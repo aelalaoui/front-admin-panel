@@ -7,8 +7,12 @@
       :style="{ transform: show ? 'translateX(0%)' : 'translateX(-110%)' }"
   >
     <v-list color="transparent">
-      <v-list-item prepend-icon="mdi-view-dashboard" title="Home" value="home"></v-list-item>
-      <v-list-item prepend-icon="mdi-forum" title="About" value="about"></v-list-item>
+      <NuxtLink to="/">
+        <v-list-item prepend-icon="mdi-view-dashboard" title="Home" value="home"></v-list-item>
+      </NuxtLink>
+      <NuxtLink to="/customer">
+        <v-list-item prepend-icon="mdi-forum" title="About" value="about"></v-list-item>
+      </NuxtLink>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -23,5 +27,13 @@ export default {
 <style scoped>
   .transformed {
     transform: translateX(0%);
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .text-transparent {
+    text-decoration: none;
+    color: inherit !important;
   }
 </style>

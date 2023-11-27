@@ -6,9 +6,6 @@
     <v-row>
       <dashboard-key-cards />
     </v-row>
-    <v-row>
-      <dashboard-list-cards />
-    </v-row>
   </div>
 </template>
 
