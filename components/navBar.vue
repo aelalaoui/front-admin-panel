@@ -14,7 +14,6 @@
 
 <script>
 export default {
-  components: { SideBar },
   data: () => ({
     drawer: false,
     group: null
