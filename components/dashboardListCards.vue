@@ -1,17 +1,19 @@
 <template>
   <v-col cols="12" sm="12" md="6" class="my-4">
-    <listing-card />
+    <table-card :items="parts.items"/>
   </v-col>
   <v-col cols="12" sm="12" md="6" class="my-4">
     <time-line-card />
   </v-col>
 </template>
 <script>
-import ListingCard from "./listingCard.vue";
+import { usePartsStore } from '@/stores/parts'
+import TableCard from "./tableCard.vue";
 import TimeLineCard from "./timeLineCard.vue";
 export default {
-  components: {TimeLineCard, ListingCard},
+  components: {TimeLineCard, TableCard},
   data: () => ({
+    parts: {},
     bars: [
       { class: 'primary' },
       { class: 'purple', dark: true },
@@ -19,5 +21,8 @@ export default {
       { class: 'green' },
     ],
   }),
+  mounted() {
+    this.parts = usePartsStore()
+  }
 }
 </script>
