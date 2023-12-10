@@ -12,14 +12,14 @@
       </v-btn>
     </v-toolbar>
     <v-data-table v-model:search="search" :items="items" class="scrollable-table">
-      <template v-slot:header.stock>
+      <template v-slot:header.quantity>
         <div class="text-end">Stock</div>
       </template>
 
-      <template v-slot:item.image="{ item }">
+      <template v-slot:item.id="{ item }">
         <v-card class="my-2" elevation="2" rounded>
           <v-img
-              :src="`https://cdn.vuetifyjs.com/docs/images/graphics/gpus/${item.image}`"
+              :src="`https://cdn.vuetifyjs.com/docs/images/graphics/gpus/${item.id}`"
               height="64"
               cover
           ></v-img>
@@ -36,11 +36,11 @@
         ></v-rating>
       </template>
 
-      <template v-slot:item.stock="{ item }">
+      <template v-slot:item.quantity="{ item }">
         <div class="text-end">
           <v-chip
-              :color="item.stock ? 'green' : 'red'"
-              :text="item.stock ? 'In stock' : 'Out of stock'"
+              :color="item.quantity > 0 ? 'green' : 'red'"
+              :text="item.quantity > 0 ? 'In stock' : 'Out of stock'"
               class="text-uppercase"
               label
               size="small"

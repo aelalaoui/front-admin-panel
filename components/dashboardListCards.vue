@@ -21,8 +21,9 @@ export default {
       { class: 'green' },
     ],
   }),
-  mounted() {
-    this.parts = usePartsStore()
-  }
+  async mounted() {
+    const partsStore = usePartsStore();
+    this.parts = await partsStore.getParts();
+  },
 }
 </script>
