@@ -9,11 +9,24 @@ export default defineNuxtConfig({
       ))
     },
   ],
+  pinia: {
+    //@ts-ignore
+    autoImports: ['defineStore'],
+  },
+  imports: {
+    dirs: ["./stores"],
+  },
   //@ts-ignore
   vite: {
     ssr: {
       noExternal: [`vuetify`]
     }
   },
-  devtools: { enabled: false }
+  devtools: { enabled: false },
+  runtimeConfig: {
+    public: {
+      apiBackUrl: process.env.API_BACK_URL,
+    }
+  },
+  privateRuntimeConfig: {},
 })
