@@ -1,109 +1,26 @@
 import { defineStore } from 'pinia'
 import { useRuntimeConfig } from "nuxt/app";
 
+interface PartsApiResponse {
+    // Adjust this structure based on your actual API response
+    data: object[]; // Change the type according to your API response
+}
+
 export const usePartsStore = defineStore('parts', () => {
-    const items = ref();
+    const items = ref<object[] | undefined>();
     const config = useRuntimeConfig();
 
-    const setItems = ({ data }: { data?: object }) => (items.value = data);
+    // Adjust the setItems function to handle the specific structure of your API response
+    const setItems = (data: PartsApiResponse) => (items.value = data.data);
 
     const getParts = async () => {
-        const data = await $fetch<any>(config.public.apiBackUrl + 'parts/');
-        setItems(data);
+        try {
+            const data = await $fetch<PartsApiResponse>(config.public.apiBackUrl + 'parts/');
+            setItems(data);
+        } catch (error) {
+            console.error('Error fetching parts:', error);
+        }
     };
 
-
     return { items, getParts };
-})
-
-// export const usePartsStore = defineStore('parts', {
-//     state: () => ({
-//         items: [
-//             {
-//                 name: 'Nebula GTX 3080',
-//                 image: '1.png',
-//                 rating: 5,
-//                 stock: true,
-//             },
-//             {
-//                 name: 'Galaxy RTX 3080',
-//                 image: '2.png',
-//                 stock: false,
-//             },
-//             {
-//                 name: 'Orion RX 6800 XT',
-//                 image: '3.png',
-//                 stock: true,
-//             },
-//             {
-//                 name: 'Vortex RTX 3090',
-//                 image: '4.png',
-//                 stock: true,
-//             },
-//             {
-//                 name: 'Cosmos GTX 1660 Super',
-//                 image: '5.png',
-//                 stock: false,
-//             },
-//             {
-//                 name: 'Nebula GTX 3080',
-//                 image: '1.png',
-//                 stock: true,
-//             },
-//             {
-//                 name: 'Galaxy RTX 3080',
-//                 image: '2.png',
-//                 stock: false,
-//             },
-//             {
-//                 name: 'Orion RX 6800 XT',
-//                 image: '3.png',
-//                 stock: true,
-//             },
-//             {
-//                 name: 'Vortex RTX 3090',
-//                 image: '4.png',
-//                 stock: true,
-//             },
-//             {
-//                 name: 'Cosmos GTX 1660 Super',
-//                 image: '5.png',
-//                 stock: false,
-//             },
-//             {
-//                 name: 'Nebula GTX 3080',
-//                 image: '1.png',
-//                 stock: true,
-//             },
-//             {
-//                 name: 'Galaxy RTX 3080',
-//                 image: '2.png',
-//                 stock: false,
-//             },
-//             {
-//                 name: 'Orion RX 6800 XT',
-//                 image: '3.png',
-//                 stock: true,
-//             },
-//             {
-//                 name: 'Vortex RTX 3090',
-//                 image: '4.png',
-//                 stock: true,
-//             },
-//             {
-//                 name: 'Cosmos GTX 1660 Super',
-//                 image: '5.png',
-//                 stock: false,
-//             },
-//         ],
-//     }),
-//     actions: {
-//         async getParts() {
-//             const config = useRuntimeConfig();
-//             console.log(config);
-//             const data = await $fetch(config.API_BACK_URL + 'parts/')
-//             //this.items = data
-//             console.log(data);
-//         },
-//     }
-//})
+});
