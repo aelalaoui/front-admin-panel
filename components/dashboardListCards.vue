@@ -43,14 +43,12 @@ import TimeLineCard from "./timeLineCard.vue";
 import { onMounted, computed, ref, defineAsyncComponent } from 'vue';
 import ReusableTable from "./reusableTable.vue";
 
-const AsyncTableCard = defineAsyncComponent(() => import('./TableCard.vue'));
 const AsyncTimeLineCard = defineAsyncComponent(() => import('./TimeLineCard.vue'));
 
 export default {
   components: {
     ReusableTable,
     TimeLineCard,
-    AsyncTableCard,
     AsyncTimeLineCard
   },
   setup() {
