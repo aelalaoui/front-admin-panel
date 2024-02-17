@@ -26,7 +26,6 @@
     <v-col cols="12" sm="12" md="6" class="my-4">
       <suspense>
         <template #default>
-          <time-line-card />
         </template>
         <template #fallback>
           <!-- Fallback content while loading -->
@@ -39,17 +38,12 @@
 
 <script>
 import { usePartsStore } from '@/stores/parts';
-import TimeLineCard from "./timeLineCard.vue";
-import { onMounted, computed, ref, defineAsyncComponent } from 'vue';
+import { onMounted, computed, ref } from 'vue';
 import ReusableTable from "./reusableTable.vue";
-
-const AsyncTimeLineCard = defineAsyncComponent(() => import('./TimeLineCard.vue'));
 
 export default {
   components: {
     ReusableTable,
-    TimeLineCard,
-    AsyncTimeLineCard
   },
   setup() {
     const partsStore = usePartsStore();
