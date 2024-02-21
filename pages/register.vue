@@ -1,10 +1,13 @@
 <template>
   <div>
     <v-card height="25"></v-card>
-    <v-img class="mx-auto my-6" max-width="228"
-           src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg"></v-img>
+    <v-img
+        class="mx-auto my-6"
+        max-width="228"
+        src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg"
+    ></v-img>
     <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="448" rounded="lg">
-      <v-form fast-fail @submit.prevent="signup">
+      <v-form @submit.prevent="signup">
         <v-text-field
             density="compact"
             variant="underlined"
@@ -48,7 +51,7 @@
       </v-form>
       <div class="mt-2">
         <p class="text-body-2">
-          Already have an account? <a href="#">Sign in</a>
+          Already have an account? <a class="text-blue text-decoration-none" href="./login">Sign in</a>
         </p>
       </div>
     </v-card>
